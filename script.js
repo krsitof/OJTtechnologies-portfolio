@@ -588,36 +588,83 @@ function initMobileSidebar() {
     const overlay = document.getElementById('sidebarOverlay');
     
     if (!menuBtn || !navLinks) {
+        alert('HIBA: Nem találom a menu gombot vagy a nav-links elemet!');
         return;
     }
     
-    function toggleSidebar() {
-        menuBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        if (overlay) overlay.classList.toggle('active');
-        const isOpen = navLinks.classList.contains('active');
-        navLinks.style.right = isOpen ? '0' : '-300px';
-        navLinks.style.display = 'flex';
-        navLinks.style.visibility = isOpen ? 'visible' : 'hidden';
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Ellenőrzés - működik-e a script
+    alert('Mobile sidebar inicializálva! Kattints OK, majd próbáld a hamburger menüt.');
+    
+    function openSidebar() {
+        menuBtn.classList.add('active');
+        navLinks.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        
+        // Erőteljes inline stílusok
+        navLinks.style.cssText = `
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: 0 !important;
+            width: 280px !important;
+            height: 100vh !important;
+            background: #1a1a2e !important;
+            flex-direction: column !important;
+            padding: 100px 30px 30px !important;
+            z-index: 9999 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        `;
+        document.body.style.overflow = 'hidden';
     }
     
     function closeSidebar() {
         menuBtn.classList.remove('active');
         navLinks.classList.remove('active');
         if (overlay) overlay.classList.remove('active');
-        navLinks.style.right = '-300px';
-        navLinks.style.visibility = 'hidden';
+        
+        navLinks.style.cssText = `
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -300px !important;
+            width: 280px !important;
+            height: 100vh !important;
+            background: #1a1a2e !important;
+            flex-direction: column !important;
+            padding: 100px 30px 30px !important;
+            z-index: 9999 !important;
+            visibility: hidden !important;
+        `;
         document.body.style.overflow = '';
     }
     
-    menuBtn.addEventListener('click', toggleSidebar);
-    if (overlay) overlay.addEventListener('click', closeSidebar);
+    let isOpen = false;
+    
+    menuBtn.addEventListener('click', function() {
+        isOpen = !isOpen;
+        if (isOpen) {
+            openSidebar();
+        } else {
+            closeSidebar();
+        }
+    });
+    
+    if (overlay) overlay.addEventListener('click', function() {
+        isOpen = false;
+        closeSidebar();
+    });
     
     // Close sidebar when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeSidebar);
+        link.addEventListener('click', function() {
+            isOpen = false;
+            closeSidebar();
+        });
     });
+    
+    // Kezdeti állapot - rejtve
+    closeSidebar();
 }
 
 // ========================================
