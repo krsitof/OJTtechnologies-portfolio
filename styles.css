@@ -231,18 +231,64 @@ body {
     gap: 20px;
 }
 
-/* Language Switcher */
-.language-switcher {
+/* Language Dropdown */
+.lang-dropdown {
+    position: relative;
+}
+
+.lang-toggle {
     display: flex;
-    gap: 5px;
+    align-items: center;
+    gap: 8px;
     background: var(--glass-bg);
-    padding: 5px;
-    border-radius: 30px;
     border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.lang-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.lang-dropdown.open .lang-toggle i {
+    transform: rotate(180deg);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 120px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+    z-index: 1001;
+}
+
+.lang-dropdown.open .lang-menu {
+    max-height: 200px;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .lang-btn {
-    padding: 8px 15px;
+    padding: 8px 12px;
     border: none;
     background: transparent;
     color: var(--text-secondary);
@@ -250,12 +296,14 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 12px;
     transition: var(--transition-fast);
+    text-align: left;
 }
 
 .lang-btn:hover {
     color: var(--text-primary);
+    background: var(--glass-bg);
 }
 
 .lang-btn.active {
@@ -2435,11 +2483,25 @@ body {
         border-top: 1px solid var(--glass-border);
     }
     
-    .mobile-lang-switcher .language-switcher {
-        justify-content: center;
+    .mobile-lang-switcher .lang-dropdown {
+        width: 100%;
     }
-    
-    .nav-right .language-switcher {
+
+    .mobile-lang-switcher .lang-toggle {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .mobile-lang-switcher .lang-menu {
+        position: static;
+        max-height: 0;
+    }
+
+    .mobile-lang-switcher .lang-dropdown.open .lang-menu {
+        max-height: 200px;
+    }
+
+    .nav-right .lang-dropdown {
         display: none;
     }
     

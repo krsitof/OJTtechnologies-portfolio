@@ -35,20 +35,32 @@
                 <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 <li class="mobile-lang-switcher">
-                    <div class="language-switcher">
-                        <button class="lang-btn" data-lang="en">EN</button>
-                        <button class="lang-btn active" data-lang="hu">HU</button>
-                        <button class="lang-btn" data-lang="sr">SR</button>
+                    <div class="lang-dropdown" data-role="lang-dropdown">
+                        <button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="lang-current">HU</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="lang-menu" role="menu">
+                            <button class="lang-btn" data-lang="en" role="menuitem">EN</button>
+                            <button class="lang-btn active" data-lang="hu" role="menuitem">HU</button>
+                            <button class="lang-btn" data-lang="sr" role="menuitem">SR</button>
+                        </div>
                     </div>
                 </li>
             </ul>
 
             <div class="nav-right">
                 <!-- Language Switcher -->
-                <div class="language-switcher">
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn active" data-lang="hu">HU</button>
-                    <button class="lang-btn" data-lang="sr">SR</button>
+                <div class="lang-dropdown" data-role="lang-dropdown">
+                    <button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-current">HU</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-menu" role="menu">
+                        <button class="lang-btn" data-lang="en" role="menuitem">EN</button>
+                        <button class="lang-btn active" data-lang="hu" role="menuitem">HU</button>
+                        <button class="lang-btn" data-lang="sr" role="menuitem">SR</button>
+                    </div>
                 </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">

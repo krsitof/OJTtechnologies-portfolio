@@ -688,7 +688,40 @@ function initNavbar() {
 // ========================================
 function initLanguageSwitcher() {
     const langBtns = document.querySelectorAll('.lang-btn, .footer-lang-btn');
-    
+    const dropdowns = document.querySelectorAll('[data-role="lang-dropdown"]');
+
+    const setCurrentLabel = (lang) => {
+        document.querySelectorAll('.lang-current').forEach(el => {
+            el.textContent = lang.toUpperCase();
+        });
+    };
+
+    setCurrentLabel(currentLang);
+
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.lang-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdowns.forEach(d => {
+                if (d !== dropdown) d.classList.remove('open');
+                const t = d.querySelector('.lang-toggle');
+                if (t) t.setAttribute('aria-expanded', d.classList.contains('open'));
+            });
+            dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+        });
+    });
+
+    document.addEventListener('click', () => {
+        dropdowns.forEach(d => {
+            d.classList.remove('open');
+            const t = d.querySelector('.lang-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        });
+    });
+
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Update active state for header lang buttons
@@ -698,9 +731,17 @@ function initLanguageSwitcher() {
             // Change language
             currentLang = btn.dataset.lang;
             updateLanguage();
+            setCurrentLabel(currentLang);
             
             // Update HTML lang attribute
             document.documentElement.lang = currentLang;
+
+            // Close dropdowns
+            dropdowns.forEach(d => {
+                d.classList.remove('open');
+                const t = d.querySelector('.lang-toggle');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            });
         });
     });
 }
