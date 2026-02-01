@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJT Technologies | Premium Web Design</title>
+    <link rel="icon" type="image/png" href="images/technologies.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Bubbles Background -->
+    <div class="bubbles-container" id="bubbles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/technologies.png" alt="OJT Technologies" class="logo-img">
+                <span class="logo-text">OJT<span class="accent">Technologies</span></span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn active" data-lang="hu">HU</button>
+                    <button class="lang-btn" data-lang="sr">SR</button>
+                </div>
+                
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge" data-i18n="hero.badge">Premium Web Solutions</div>
+            <h1 class="hero-title">
+                <span data-i18n="hero.title1">Crafting Digital</span>
+                <span class="accent-text" data-i18n="hero.title2">Experiences</span>
+                <span data-i18n="hero.title3">That Captivate</span>
+            </h1>
+            <p class="hero-description" data-i18n="hero.description">
+                We transform your vision into stunning, high-performance websites that leave lasting impressions. 
+                Specializing in luxury web design, modern technologies, and seamless user experiences.
+            </p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">
+                    <span data-i18n="hero.viewWork">View Our Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span data-i18n="hero.getInTouch">Get In Touch</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-label" data-i18n="hero.projectsCompleted">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-label" data-i18n="hero.yearsExperience">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-label" data-i18n="hero.clientSatisfaction">% Satisfaction</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <i class="fas fa-code"></i>
+                <span>HTML/CSS/JS</span>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-palette"></i>
+                <span>UI/UX Design</span>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Responsive</span>
+            </div>
+            <div class="hero-orb"></div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span data-i18n="hero.scrollDown">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="about.subtitle">Who We Are</span>
+                <h2 class="section-title" data-i18n="about.title">Passionate About Creating Digital Excellence</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="frame-decoration"></div>
+                        <div class="about-avatar">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="exp-number">5+</span>
+                            <span class="exp-text" data-i18n="about.yearsExp">Years of Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3 class="about-heading" data-i18n="about.heading">Building Tomorrow's Web, Today</h3>
+                    <p class="about-description" data-i18n="about.description1">
+                        At OJT Technologies, we believe every business deserves a stunning online presence. 
+                        We specialize in creating bespoke websites that blend aesthetic beauty with powerful functionality.
+                    </p>
+                    <p class="about-description" data-i18n="about.description2">
+                        Our expertise spans from elegant restaurant ordering systems to corporate portfolios, 
+                        e-commerce platforms, and interactive web applications. We don't just build websites – 
+                        we craft digital experiences that drive results.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature1Title">Custom Solutions</h4>
+                                <p data-i18n="about.feature1Desc">Tailored to your unique business needs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature2Title">Modern Technologies</h4>
+                                <p data-i18n="about.feature2Desc">Using the latest web standards</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature3Title">Bilingual Support</h4>
+                                <p data-i18n="about.feature3Desc">HU, SR, EN language capabilities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary">
+                        <span data-i18n="about.letsWork">Let's Work Together</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="skills.subtitle">Szakmai Tudás</span>
+                <h2 class="section-title" data-i18n="skills.title">Amikkel Dolgozom</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Frontend Skills -->
+                <div class="skill-category glass-card" data-tilt>
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 data-i18n="skills.frontend">Frontend Fejlesztés</h3>
+                    </div>
+                    <div class="skills-list-simple">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">SCSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+
+                <!-- Backend & Tools -->
+                <div class="skill-category glass-card" data-tilt>
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 data-i18n="skills.backend">Backend & Eszközök</h3>
+                    </div>
+                    <div class="skills-list-simple">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- Specialty -->
+                <div class="skill-category glass-card" data-tilt>
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 data-i18n="skills.specialty">Specialitás</h3>
+                    </div>
+                    <div class="skills-list-simple">
+                        <span class="skill-tag">Éttermi Rendszerek</span>
+                        <span class="skill-tag">Online Rendelés</span>
+                        <span class="skill-tag">Többnyelvű Menük</span>
+                        <span class="skill-tag">Személyzeti Műszerfal</span>
+                        <span class="skill-tag">Animációk</span>
+                        <span class="skill-tag">Sötét Témák</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expertise Cards -->
+            <div class="expertise-cards">
+                <div class="expertise-card glass-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="expertise-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4 data-i18n="skills.performanceTitle">Performance</h4>
+                    <p data-i18n="skills.performanceDesc">Lightning-fast load times and optimized code for the best user experience</p>
+                </div>
+                <div class="expertise-card glass-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="expertise-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 data-i18n="skills.securityTitle">Security</h4>
+                    <p data-i18n="skills.securityDesc">Best practices in web security to protect your data and users</p>
+                </div>
+                <div class="expertise-card glass-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="expertise-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h4 data-i18n="skills.accessibilityTitle">Accessibility</h4>
+                    <p data-i18n="skills.accessibilityDesc">Inclusive design ensuring everyone can use your website</p>
+                </div>
+                <div class="expertise-card glass-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="expertise-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 data-i18n="skills.seoTitle">SEO Ready</h4>
+                    <p data-i18n="skills.seoDesc">Built with search engines in mind for maximum visibility</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section Preview -->
+    <section id="services" class="services-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="services.subtitle">What We Offer</span>
+                <h2 class="section-title" data-i18n="services.title">Premium Web Design Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card glass-card featured" data-tilt>
+                    <div class="featured-badge" data-i18n="services.specialty">Specialitás</div>
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-i18n="services.restaurantTitle">Éttermi Rendszerek</h3>
+                    <p data-i18n="services.restaurantDesc">Teljes körű digitális megoldások éttermeknek: online menük, rendelési rendszerek, valós idejű műszerfalak és többnyelvű támogatás.</p>
+                    <ul class="service-features">
+                        <li data-i18n="services.restaurantF1">Online Rendelés</li>
+                        <li data-i18n="services.restaurantF2">Személyzeti Műszerfal</li>
+                        <li data-i18n="services.restaurantF3">Többnyelvű Menü</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        <span data-i18n="services.learnMore">Tudj Meg Többet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card glass-card" data-tilt>
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 data-i18n="services.webDevTitle">Egyedi Webfejlesztés</h3>
+                    <p data-i18n="services.webDevDesc">Nulláról épített egyedi weboldalak, márkaarculatodra és üzleti céljaidra szabva. Landó oldaltól összetett webalkalmázásokig.</p>
+                    <ul class="service-features">
+                        <li data-i18n="services.webDevF1">Reszponzív Design</li>
+                        <li data-i18n="services.webDevF2">Modern Technológiák</li>
+                        <li data-i18n="services.webDevF3">Böngésző Kompatibilitás</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        <span data-i18n="services.learnMore">Tudj Meg Többet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="portfolio.subtitle">Our Work</span>
+                <h2 class="section-title" data-i18n="portfolio.title">Featured Projects & Case Studies</h2>
+            </div>
+
+            <!-- Portfolio Notice -->
+            <div class="portfolio-notice glass-card">
+                <i class="fas fa-info-circle"></i>
+                <p data-i18n="portfolio.notice">Ezek a weboldalak prototípusok, amelyeket bemutató célra készítettem. Jelenleg egyetlen cég sem használja őket éles környezetben.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Project 1 - Tiska Laguna -->
+                <div class="portfolio-item large" data-category="restaurant" data-tilt>
+                    <div class="portfolio-image">
+                        <div class="image-placeholder restaurant-theme">
+                            <i class="fas fa-fish"></i>
+                            <span>Tiska Laguna</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="project-category" data-i18n="portfolio.catRestaurant">Éttermi Rendszer</span>
+                                <h3>Tiska Laguna Restaurant</h3>
+                                <p data-i18n="portfolio.project1Desc">Teljes rendelési rendszer kétnyelvű menüvel (magyar/szerb), valós idejű személyzeti műszerfallal és elegáns sötét témájú designnal.</p>
+                                <div class="project-tech">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Firebase</span>
+                                </div>
+                                <a href="https://tiskalagunarestaurant.web.app/" target="_blank" class="portfolio-link">
+                                    <span data-i18n="portfolio.viewProject">Projekt Megtekintése</span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Bonanza -->
+                <div class="portfolio-item" data-category="restaurant" data-tilt>
+                    <div class="portfolio-image">
+                        <div class="image-placeholder cafe-theme">
+                            <i class="fas fa-utensils"></i>
+                            <span>Bonanza</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="project-category" data-i18n="portfolio.catRestaurant">Éttermi Rendszer</span>
+                                <h3>Bonanza Restaurant</h3>
+                                <p data-i18n="portfolio.project2Desc">Modern éttermi weboldal online menüvel és rendelési lehetőséggel.</p>
+                                <div class="project-tech">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Vercel</span>
+                                </div>
+                                <a href="https://bonanazarestaurant.vercel.app/" target="_blank" class="portfolio-link">
+                                    <span data-i18n="portfolio.viewProject">Projekt Megtekintése</span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Strand Bekávár -->
+                <div class="portfolio-item" data-category="restaurant" data-tilt>
+                    <div class="portfolio-image">
+                        <div class="image-placeholder ecommerce-theme">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Strand Bekávár</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="project-category" data-i18n="portfolio.catRestaurant">Éttermi Rendszer</span>
+                                <h3>Strand Bekávár</h3>
+                                <p data-i18n="portfolio.project3Desc">Strandolóknak szánt éttermi és büfé weboldal online rendelési lehetőséggel.</p>
+                                <div class="project-tech">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Firebase</span>
+                                </div>
+                                <a href="https://strandbekavar.web.app/" target="_blank" class="portfolio-link">
+                                    <span data-i18n="portfolio.viewProject">Projekt Megtekintése</span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-cta">
+                <p data-i18n="portfolio.ctaText">Interested in seeing more of our work?</p>
+                <a href="#contact" class="btn btn-primary">
+                    <span data-i18n="portfolio.ctaBtn">Start Your Project</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="testimonials.subtitle">Client Feedback</span>
+                <h2 class="section-title" data-i18n="testimonials.title">What Our Clients Say</h2>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.quote1">
+                            "Az OJT Technologies teljesen átalakította éttermünk online jelenlétét. A rendelési rendszer intuitív, 
+                            és vendégeink imádják a kétnyelvű menüt. Rendeléseink jelentősen megnőttek az első hónapban!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 data-i18n="testimonials.anonymous">Anonim Ügyfél</h4>
+                                <span data-i18n="testimonials.role1">Étterem Tulajdonos</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.quote2">
+                            "Professzionális, kreatív és hihetetlenül rugalmas. Tökéletesen megértették a víziónkat 
+                            és olyan weboldalt szállítottak, ami felülmúlta elvárásainkat. Nagyon ajánlom!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 data-i18n="testimonials.anonymous">Anonim Ügyfél</h4>
+                                <span data-i18n="testimonials.role2">Vállalkozó</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.quote3">
+                            "A részletekre való figyelem és az elegáns design, amit a márkánkhoz hoztak, figyelemre méltó volt. 
+                            A weboldal tökéletesen tükrözi éttermünk hangulatát."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4 data-i18n="testimonials.anonymous">Anonim Ügyfél</h4>
+                                <span data-i18n="testimonials.role3">Vendéglátós</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="slider-btn prev" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="slider-btn next" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="process.subtitle">How We Work</span>
+                <h2 class="section-title" data-i18n="process.title">Our Development Process</h2>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 data-i18n="process.step1Title">Discovery & Planning</h3>
+                        <p data-i18n="process.step1Desc">We start by understanding your business, goals, and target audience. Together, we define the project scope and create a detailed roadmap.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3 data-i18n="process.step2Title">Design & Prototype</h3>
+                        <p data-i18n="process.step2Desc">Our designers create stunning mockups and interactive prototypes. We iterate based on your feedback until the design is perfect.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 data-i18n="process.step3Title">Development</h3>
+                        <p data-i18n="process.step3Desc">We build your website using clean, efficient code and modern technologies. Every feature is carefully implemented and tested.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 data-i18n="process.step4Title">Launch & Support</h3>
+                        <p data-i18n="process.step4Desc">After thorough testing, we launch your website and provide ongoing support to ensure everything runs smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="contact.subtitle">Get In Touch</span>
+                <h2 class="section-title" data-i18n="contact.title">Let's Start Your Project</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-i18n="contact.infoTitle">Contact Information</h3>
+                    <p data-i18n="contact.infoDesc">Ready to transform your online presence? Reach out to us and let's discuss your project.</p>
+                    
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <span data-i18n="contact.email">Email</span>
+                                <a href="mailto:opweb.technologies@gmail.com">opweb.technologies@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-text">
+                                <span data-i18n="contact.phone">Telefon</span>
+                                <a href="tel:+36209109916">+36 20 910 9916</a>
+                                <small data-i18n="contact.phoneNote">(Csak magyar nyelven)</small>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <span data-i18n="contact.location">Helyszín</span>
+                                <p>Magyarország / Szerbia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.formName">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                            <span class="input-focus"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.formEmail">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            <span class="input-focus"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-i18n="contact.formSubject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="service" data-i18n="contact.formService">Érdeklődési Terület</label>
+                        <select id="service" name="service">
+                            <option value="" data-i18n="contact.selectService">Válassz szolgáltatást...</option>
+                            <option value="restaurant" data-i18n="contact.optionRestaurant">Éttermi Rendszer</option>
+                            <option value="web" data-i18n="contact.optionWeb">Egyedi Webfejlesztés</option>
+                            <option value="other" data-i18n="contact.optionOther">Egyéb</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.formMessage">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+                        <span class="input-focus"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <span data-i18n="contact.formSubmit">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-i18n="contact.successMsg">Thank you! Your message has been sent successfully.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        
+        <div class="footer-content">
+            <div class="section-container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#" class="logo">
+                            <span class="logo-icon">◈</span>
+                            <span class="logo-text">OJT<span class="accent">Technologies</span></span>
+                        </a>
+                        <p data-i18n="footer.tagline">Crafting premium digital experiences that captivate and convert. Your vision, our expertise.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                        <ul>
+                            <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                            <li><a href="#about" data-i18n="nav.about">About</a></li>
+                            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                            <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+                            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4 data-i18n="footer.services">Szolgáltatások</h4>
+                        <ul>
+                            <li><a href="#services" data-i18n="services.restaurantTitle">Éttermi Rendszerek</a></li>
+                            <li><a href="#services" data-i18n="services.webDevTitle">Egyedi Webfejlesztés</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h4 data-i18n="footer.contactUs">Kapcsolat</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:opweb.technologies@gmail.com">opweb.technologies@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+36209109916">+36 20 910 9916</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Magyarország / Szerbia</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container">
+                <p>&copy; 2026 OJT Technologies. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <div class="footer-lang">
+                    <button class="footer-lang-btn" data-lang="en">English</button>
+                    <span>|</span>
+                    <button class="footer-lang-btn" data-lang="hu">Magyar</button>
+                    <span>|</span>
+                    <button class="footer-lang-btn" data-lang="sr">Srpski</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+        <button class="chatbot-toggle" id="chatbotToggle" aria-label="Nyisd meg a chatbotot">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-badge">1</span>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i>
+                    <span data-i18n="chatbot.title">OJT Asszisztens</span>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        <p data-i18n="chatbot.welcome">Szia! 👋 Én az OJT Technologies virtuális asszisztense vagyok. Miben segíthetek?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-suggestions" id="chatbotSuggestions">
+                <button class="suggestion-btn" data-question="services" data-i18n="chatbot.q1">Milyen szolgáltatásokat kínáltok?</button>
+                <button class="suggestion-btn" data-question="price" data-i18n="chatbot.q2">Mennyibe kerül egy weboldal?</button>
+                <button class="suggestion-btn" data-question="time" data-i18n="chatbot.q3">Mennyi idő elkészíteni?</button>
+                <button class="suggestion-btn" data-question="portfolio" data-i18n="chatbot.q4">Láthatom a munkáitokat?</button>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Írd be a kérdésed..." data-i18n-placeholder="chatbot.placeholder">
+                <button id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
