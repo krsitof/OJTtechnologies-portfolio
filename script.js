@@ -595,13 +595,19 @@ function initMobileSidebar() {
         menuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
         if (overlay) overlay.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        const isOpen = navLinks.classList.contains('active');
+        navLinks.style.right = isOpen ? '0' : '-300px';
+        navLinks.style.display = 'flex';
+        navLinks.style.visibility = isOpen ? 'visible' : 'hidden';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     }
     
     function closeSidebar() {
         menuBtn.classList.remove('active');
         navLinks.classList.remove('active');
         if (overlay) overlay.classList.remove('active');
+        navLinks.style.right = '-300px';
+        navLinks.style.visibility = 'hidden';
         document.body.style.overflow = '';
     }
     
