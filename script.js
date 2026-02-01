@@ -587,24 +587,30 @@ function initMobileSidebar() {
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('sidebarOverlay');
     
-    if (!menuBtn || !navLinks) return;
+    console.log('Sidebar init:', { menuBtn, navLinks, overlay });
+    
+    if (!menuBtn || !navLinks) {
+        console.log('Sidebar elements not found');
+        return;
+    }
     
     function toggleSidebar() {
+        console.log('Toggle sidebar clicked');
         menuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
-        overlay.classList.toggle('active');
+        if (overlay) overlay.classList.toggle('active');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     }
     
     function closeSidebar() {
         menuBtn.classList.remove('active');
         navLinks.classList.remove('active');
-        overlay.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
     
     menuBtn.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
     
     // Close sidebar when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
