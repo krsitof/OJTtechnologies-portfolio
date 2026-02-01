@@ -213,6 +213,10 @@ body {
     transition: var(--transition-medium);
 }
 
+.mobile-lang-switcher {
+    display: none;
+}
+
 .nav-links a:hover {
     color: var(--text-primary);
 }
@@ -2425,6 +2429,7 @@ body {
     }
     
     .mobile-lang-switcher {
+        display: block;
         margin-top: 20px;
         padding-top: 20px;
         border-top: 1px solid var(--glass-border);

@@ -587,15 +587,11 @@ function initMobileSidebar() {
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('sidebarOverlay');
     
-    console.log('Sidebar init:', { menuBtn, navLinks, overlay });
-    
     if (!menuBtn || !navLinks) {
-        console.log('Sidebar elements not found');
         return;
     }
     
     function toggleSidebar() {
-        console.log('Toggle sidebar clicked');
         menuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
         if (overlay) overlay.classList.toggle('active');
