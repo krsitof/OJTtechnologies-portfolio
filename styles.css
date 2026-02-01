@@ -2385,24 +2385,25 @@ body {
     }
     
     .nav-links {
-        display: flex;
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 280px;
-        height: 100vh;
-        background: var(--bg-secondary);
-        flex-direction: column;
-        padding: 100px 30px 30px;
-        gap: 10px;
-        z-index: 999;
-        transition: right 0.3s ease;
-        border-left: 1px solid var(--glass-border);
-        overflow-y: auto;
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -300px !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: var(--bg-secondary) !important;
+        flex-direction: column !important;
+        padding: 100px 30px 30px !important;
+        gap: 10px !important;
+        z-index: 999 !important;
+        transition: right 0.3s ease !important;
+        border-left: 1px solid var(--glass-border) !important;
+        overflow-y: auto !important;
+        list-style: none !important;
     }
     
     .nav-links.active {
-        right: 0;
+        right: 0 !important;
     }
     
     .nav-links li {
@@ -2415,6 +2416,7 @@ body {
         font-size: 1.1rem;
         border-radius: 10px;
         transition: var(--transition-fast);
+        color: var(--text-secondary);
     }
     
     .nav-links a:hover {
