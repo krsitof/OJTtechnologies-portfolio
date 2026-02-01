@@ -588,12 +588,8 @@ function initMobileSidebar() {
     const overlay = document.getElementById('sidebarOverlay');
     
     if (!menuBtn || !navLinks) {
-        alert('HIBA: Nem találom a menu gombot vagy a nav-links elemet!');
         return;
     }
-    
-    // Ellenőrzés - működik-e a script
-    alert('Mobile sidebar inicializálva! Kattints OK, majd próbáld a hamburger menüt.');
     
     function openSidebar() {
         menuBtn.classList.add('active');
