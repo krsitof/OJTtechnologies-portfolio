@@ -910,12 +910,6 @@ function debounce(func, wait) {
 }
 
 // ========================================
-// Console Easter Egg
-// ========================================
-console.log('%c OJT Technologies ', 'background: linear-gradient(135deg, #00a896, #02c39a); color: white; font-size: 24px; font-weight: bold; padding: 20px 40px; border-radius: 10px;');
-console.log('%c Crafting Digital Excellence ', 'color: #00a896; font-size: 14px; font-style: italic;');
-
-// ========================================
 // Portfolio Filter
 // ========================================
 function initPortfolioFilter() {
