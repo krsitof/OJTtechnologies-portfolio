@@ -50,7 +50,7 @@ Odgovaraj kratko i prijateljski na srpskom. Ako nešto ne znaš, uputi korisnika
 
         const systemPrompt = systemPrompts[language] || systemPrompts.hu;
 
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
         
         const response = await fetch(apiUrl, {
             method: 'POST',
