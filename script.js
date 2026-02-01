@@ -1066,10 +1066,9 @@ function initChatbot() {
     // Handle suggestions
     suggestions.forEach(btn => {
         btn.addEventListener('click', () => {
-            const question = btn.dataset.question;
             const questionText = btn.textContent;
             addMessage(questionText, 'user');
-            respondToQuestion(question);
+            askAI(questionText);
         });
     });
     
@@ -1085,22 +1084,7 @@ function initChatbot() {
         
         addMessage(text, 'user');
         input.value = '';
-        
-        // Analyze question
-        const lowerText = text.toLowerCase();
-        if (lowerText.includes('szolgáltatás') || lowerText.includes('service') || lowerText.includes('uslug') || lowerText.includes('mit csinál')) {
-            respondToQuestion('services');
-        } else if (lowerText.includes('ár') || lowerText.includes('price') || lowerText.includes('cen') || lowerText.includes('mennyi') || lowerText.includes('cost') || lowerText.includes('košta')) {
-            respondToQuestion('price');
-        } else if (lowerText.includes('idő') || lowerText.includes('time') || lowerText.includes('vreme') || lowerText.includes('mennyi ideig') || lowerText.includes('how long') || lowerText.includes('dugo')) {
-            respondToQuestion('time');
-        } else if (lowerText.includes('portfólió') || lowerText.includes('portfolio') || lowerText.includes('munka') || lowerText.includes('work') || lowerText.includes('rad')) {
-            respondToQuestion('portfolio');
-        } else if (lowerText.includes('kapcsolat') || lowerText.includes('contact') || lowerText.includes('kontakt') || lowerText.includes('email') || lowerText.includes('telefon')) {
-            respondToQuestion('contact');
-        } else {
-            respondToQuestion('default');
-        }
+        askAI(text);
     }
     
     function addMessage(text, type) {
@@ -1111,14 +1095,53 @@ function initChatbot() {
         messages.scrollTop = messages.scrollHeight;
     }
     
-    function respondToQuestion(question) {
-        setTimeout(() => {
-            const response = chatbotResponses[currentLang][question] || chatbotResponses[currentLang].default;
-            const msg = document.createElement('div');
-            msg.className = 'chat-message bot';
-            msg.innerHTML = `<div class="message-content"><p>${response}</p></div>`;
-            messages.appendChild(msg);
-            messages.scrollTop = messages.scrollHeight;
-        }, 500);
+    function showTyping() {
+        const typing = document.createElement('div');
+        typing.className = 'chat-message bot typing-indicator';
+        typing.id = 'typingIndicator';
+        typing.innerHTML = `<div class="message-content"><p><i class="fas fa-circle-notch fa-spin"></i> Gondolkodom...</p></div>`;
+        messages.appendChild(typing);
+        messages.scrollTop = messages.scrollHeight;
+    }
+    
+    function removeTyping() {
+        const typing = document.getElementById('typingIndicator');
+        if (typing) typing.remove();
+    }
+    
+    async function askAI(question) {
+        showTyping();
+        
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: question,
+                    language: currentLang
+                })
+            });
+            
+            const data = await response.json();
+            removeTyping();
+            
+            if (data.error) {
+                // Fallback to predefined responses on error
+                const fallback = chatbotResponses[currentLang]?.default || 
+                    'Hiba történt. Kérlek <a href="#contact">lépj kapcsolatba velünk</a>.';
+                addMessage(fallback, 'bot');
+            } else {
+                addMessage(data.response, 'bot');
+            }
+        } catch (error) {
+            console.error('Chatbot error:', error);
+            removeTyping();
+            // Fallback response
+            const fallback = chatbotResponses[currentLang]?.default || 
+                'Hiba történt. Kérlek <a href="#contact">lépj kapcsolatba velünk</a>.';
+            addMessage(fallback, 'bot');
+        }
     }
 }
