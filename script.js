@@ -1131,9 +1131,11 @@ function initChatbot() {
                 });
                 
                 const data = await response.json();
+                console.log('API response:', data);
                 removeTyping();
                 
                 if (data.error) {
+                    console.error('API error details:', data);
                     useFallbackResponse(question);
                 } else {
                     addMessage(data.response, 'bot');
