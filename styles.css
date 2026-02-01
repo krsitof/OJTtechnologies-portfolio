@@ -2385,6 +2385,7 @@ body {
     }
     
     .nav-links {
+        display: flex;
         position: fixed;
         top: 0;
         right: -280px;
@@ -2419,6 +2420,20 @@ body {
     .nav-links a:hover {
         background: var(--glass-bg);
         color: var(--accent-primary);
+    }
+    
+    .mobile-lang-switcher {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--glass-border);
+    }
+    
+    .mobile-lang-switcher .language-switcher {
+        justify-content: center;
+    }
+    
+    .nav-right .language-switcher {
+        display: none;
     }
     
     .mobile-menu-btn {
