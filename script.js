@@ -1112,36 +1112,64 @@ function initChatbot() {
     async function askAI(question) {
         showTyping();
         
-        try {
-            const response = await fetch('/api/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: question,
-                    language: currentLang
-                })
-            });
-            
-            const data = await response.json();
-            removeTyping();
-            
-            if (data.error) {
-                // Fallback to predefined responses on error
-                const fallback = chatbotResponses[currentLang]?.default || 
-                    'Hiba történt. Kérlek <a href="#contact">lépj kapcsolatba velünk</a>.';
-                addMessage(fallback, 'bot');
-            } else {
-                addMessage(data.response, 'bot');
+        // Check if running on Vercel (production) or locally
+        const isProduction = window.location.hostname !== 'localhost' && 
+                            window.location.hostname !== '127.0.0.1' &&
+                            !window.location.protocol.includes('file');
+        
+        if (isProduction) {
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: question,
+                        language: currentLang
+                    })
+                });
+                
+                const data = await response.json();
+                removeTyping();
+                
+                if (data.error) {
+                    useFallbackResponse(question);
+                } else {
+                    addMessage(data.response, 'bot');
+                }
+            } catch (error) {
+                console.error('Chatbot error:', error);
+                removeTyping();
+                useFallbackResponse(question);
             }
-        } catch (error) {
-            console.error('Chatbot error:', error);
-            removeTyping();
-            // Fallback response
-            const fallback = chatbotResponses[currentLang]?.default || 
-                'Hiba történt. Kérlek <a href="#contact">lépj kapcsolatba velünk</a>.';
-            addMessage(fallback, 'bot');
+        } else {
+            // Local development - use predefined responses
+            setTimeout(() => {
+                removeTyping();
+                useFallbackResponse(question);
+            }, 500);
         }
+    }
+    
+    function useFallbackResponse(question) {
+        const lowerQ = question.toLowerCase();
+        let responseKey = 'default';
+        
+        if (lowerQ.includes('szolgáltatás') || lowerQ.includes('service') || lowerQ.includes('uslug') || lowerQ.includes('mit csinál')) {
+            responseKey = 'services';
+        } else if (lowerQ.includes('ár') || lowerQ.includes('price') || lowerQ.includes('cen') || lowerQ.includes('mennyi') || lowerQ.includes('cost')) {
+            responseKey = 'price';
+        } else if (lowerQ.includes('idő') || lowerQ.includes('time') || lowerQ.includes('vreme') || lowerQ.includes('mennyi ideig')) {
+            responseKey = 'time';
+        } else if (lowerQ.includes('portfólió') || lowerQ.includes('portfolio') || lowerQ.includes('munka') || lowerQ.includes('work')) {
+            responseKey = 'portfolio';
+        } else if (lowerQ.includes('kapcsolat') || lowerQ.includes('contact') || lowerQ.includes('kontakt') || lowerQ.includes('email')) {
+            responseKey = 'contact';
+        }
+        
+        const response = chatbotResponses[currentLang]?.[responseKey] || chatbotResponses[currentLang]?.default || 
+            'Kérlek <a href="#contact">lépj kapcsolatba velünk</a>.';
+        addMessage(response, 'bot');
     }
 }
