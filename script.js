@@ -566,6 +566,7 @@ let currentLang = 'hu';
 document.addEventListener('DOMContentLoaded', () => {
     createBubbles();
     initNavbar();
+    initMobileSidebar();
     initLanguageSwitcher();
     initScrollAnimations();
     initTiltEffect();
@@ -577,6 +578,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply Hungarian as default
     updateLanguage();
 });
+
+// ========================================
+// Mobile Sidebar
+// ========================================
+function initMobileSidebar() {
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('sidebarOverlay');
+    
+    if (!menuBtn || !navLinks) return;
+    
+    function toggleSidebar() {
+        menuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    function closeSidebar() {
+        menuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    menuBtn.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+}
 
 // ========================================
 // Animated Bubbles
@@ -924,52 +958,39 @@ function initContactForm() {
     
     if (!form) return;
     
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form data
-        const formData = new FormData(form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone') || 'Nincs megadva';
-        const service = formData.get('service');
-        const budget = formData.get('budget');
-        const message = formData.get('message');
-        
-        // Build email body
-        const subject = encodeURIComponent(`Weboldal megrendelés - ${service}`);
-        const body = encodeURIComponent(
-`Név: ${name}
-Email: ${email}
-Telefon: ${phone}
-Szolgáltatás: ${service}
-Költségvetés: ${budget}
-
-Üzenet:
-${message}`
-        );
-        
-        // Open mailto link
-        const mailtoLink = `mailto:opweb.technologies@gmail.com?subject=${subject}&body=${body}`;
-        window.location.href = mailtoLink;
-        
-        // Show success message
         const submitBtn = form.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
         
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Email alkalmazás megnyitása...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Küldés...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
-            form.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            successMsg.classList.add('show');
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
-            setTimeout(() => {
-                successMsg.classList.remove('show');
-            }, 5000);
-        }, 1500);
+            if (response.ok) {
+                form.reset();
+                successMsg.classList.add('show');
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 5000);
+            } else {
+                alert('Hiba történt. Próbáld újra!');
+            }
+        } catch (error) {
+            alert('Hiba történt. Próbáld újra!');
+        }
+        
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
     });
     
     // Add focus effects to inputs
