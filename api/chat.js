@@ -45,10 +45,17 @@ Respond briefly and friendly in English. If you don't know something, direct the
 Kompanija je specijalizovana za restoranske sisteme: online menije, sisteme za naručivanje, kontrolne table za osoblje i višejezičnu podršku.
 Prethodni radovi (prototipovi): tiskalagunarestaurant.web.app, bonanazarestaurant.vercel.app, strandbekavar.web.app
 Kontakt: opweb.technologies@gmail.com (samo email za srpski)
-Odgovaraj kratko i prijateljski na srpskom. Ako nešto ne znaš, uputi korisnika na kontakt.`
+VAŽNO: UVEK odgovaraj ISKLJUČIVO na SRPSKOM jeziku. Odgovaraj kratko i prijateljski. Ako nešto ne znaš, uputi korisnika na kontakt.`
+        };
+
+        const userQuestionLabel = {
+            hu: 'Felhasználó kérdése',
+            en: 'User question',
+            sr: 'Pitanje korisnika'
         };
 
         const systemPrompt = systemPrompts[language] || systemPrompts.hu;
+        const questionLabel = userQuestionLabel[language] || userQuestionLabel.hu;
 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
         
@@ -61,7 +68,7 @@ Odgovaraj kratko i prijateljski na srpskom. Ako nešto ne znaš, uputi korisnika
                 contents: [
                     {
                         role: 'user',
-                        parts: [{ text: `${systemPrompt}\n\nFelhasználó kérdése: ${message}` }]
+                        parts: [{ text: `${systemPrompt}\n\n${questionLabel}: ${message}` }]
                     }
                 ],
                 generationConfig: {
