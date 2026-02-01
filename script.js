@@ -1047,6 +1047,7 @@ function initChatbot() {
     const input = document.getElementById('chatbotInput');
     const send = document.getElementById('chatbotSend');
     const suggestions = document.querySelectorAll('.suggestion-btn');
+    const suggestionsContainer = document.querySelector('.chatbot-suggestions');
     const badge = document.querySelector('.chatbot-badge');
     
     if (!toggle) return;
@@ -1063,11 +1064,21 @@ function initChatbot() {
         window_el.classList.remove('open');
     });
     
+    // Hide suggestions when typing
+    input.addEventListener('input', () => {
+        if (input.value.trim().length > 0) {
+            suggestionsContainer.classList.add('hidden');
+        } else {
+            suggestionsContainer.classList.remove('hidden');
+        }
+    });
+    
     // Handle suggestions
     suggestions.forEach(btn => {
         btn.addEventListener('click', () => {
             const questionText = btn.textContent;
             addMessage(questionText, 'user');
+            suggestionsContainer.classList.add('hidden');
             askAI(questionText);
         });
     });
